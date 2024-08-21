@@ -2,17 +2,25 @@
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
+#include <stdbool.h>
+
+// isfinite()
+// more asserts
+// wrong coef
+// doxygen
 
 const int NO_ROOTS = 0;                                                  //no roots
 const int ONE_ROOT = 1;                                                  //one root
 const int TWO_ROOTS = 2;                                                 //two roots
-const int INF_ROOTS = 8;                                                 //infinite number of roots (kinda infinity symbol but turned on 90 degrees lol)
+const int INF_ROOTS = 8;                                                 //inf number of roots (kinda inf symbol but turned on 90 degrees lol)
+const double EPSILON = 1e-10;
 
 int SolveLinear(double b, double c, double* x1);
 int SolveSquare(double a, double b, double c, double* x1, double* x2);
 int Dispatcher(double a, double b, double c, double *x1, double *x2);
 int Input(double* a, double* b, double* c);
 void Output(int nRoots, double x1, double x2);
+bool iszero(double eps);
 
 //-----------------------------------------------------------------------
 
@@ -34,39 +42,36 @@ int main()
 //----------------------------------------------------------------
 
 int Input(double* a, double* b, double* c)
-    {
-        printf("SQUARE EQUATION SOLVER (V1) \nDolgopa City, 2024 \n");
-        printf("All rights reserved.\n \n");
-        printf("Enter coefficients for ax2+bx+c=0 equation ");
-        printf("in the following format: a b c \n \n");
-        scanf("%lg %lg %lg", a, b, c);
-        printf("Program answer: \n \n");
-        return 0;
-     }
+{
+    printf("#######################\n"
+           "#####     ######     ##\n"
+           "####  #########  ######\n"
+           "#####    #######    ###\n"
+           "#######  #########  ###\n"
+           "###     ######     ####\n"
+           "#######################\n\n");
+
+    printf("SQUARE EQUATION SOLVER (V1) \nDolgopa City, 2024 \n\n");
+    printf("All rights reserved.\n \n");
+    printf("Enter coefficients for ax^2+bx+c=0 equation ");
+    printf("in the following format: a b c \n \n");
+    scanf("%lg %lg %lg", a, b, c);
+
+    return 0;
+}
 
 //----------------------------------------------------------------
 
 int Dispatcher(double a, double b, double c, double *x1, double *x2)
 {
+    assert(x1 != x2);
+    assert(x2 != 0);
+    assert(x1 != 0);
 
-    if (a == 0)
+    if (iszero(a))
     {
-        if (b == 0)
-        {
-            if (c == 0)
-            {
-                return INF_ROOTS;
-            }
-            else
-            {
-                return NO_ROOTS;
-            }
-        }
-        else
-        {
-            printf("Your equation is linear (x*b + c = 0).\n");
-            return SolveLinear(b, c, x1);
-        }
+        printf("Your equation is linear (b*x + c = 0).\n");
+        return SolveLinear(b, c, x1);
     }
     else
     {
@@ -79,8 +84,23 @@ int Dispatcher(double a, double b, double c, double *x1, double *x2)
 
 int SolveLinear(double b, double c, double* x1)
 {
-    *x1 = -c / b;
-    return ONE_ROOT;
+    if (iszero(b))
+    {
+        if (iszero(c))
+        {
+            return INF_ROOTS;
+        }
+        else
+        {
+            return NO_ROOTS;
+        }
+    }
+    else
+    {
+        *x1 = -c / b;
+        return ONE_ROOT;
+    }
+
 }
 
 //------------------------------------------------------------------------
@@ -89,7 +109,7 @@ int SolveSquare(double a, double b, double c, double* x1, double* x2)
 {
     double Discriminant = b * b - 4 * a * c;
 
-    if (Discriminant < 0)
+    if (Discriminant < -EPSILON)
     {
         return NO_ROOTS;
     }
@@ -98,7 +118,7 @@ int SolveSquare(double a, double b, double c, double* x1, double* x2)
         *x1 = (-b - sqrt(Discriminant)) / (2 * a);
         *x2 = (-b + sqrt(Discriminant)) / (2 * a);
 
-        if (Discriminant == 0)
+        if (iszero(Discriminant) == 1)
         {
             return ONE_ROOT;
         }
@@ -113,6 +133,7 @@ int SolveSquare(double a, double b, double c, double* x1, double* x2)
 
 void Output(int nRoots, double x1, double x2)
 {
+    printf("\nProgram answer: \n\n");
     switch (nRoots)
         {
             case NO_ROOTS: printf("There is no real roots :(");
@@ -131,4 +152,9 @@ void Output(int nRoots, double x1, double x2)
                      break;
 
         }
+}
+
+bool iszero(double eps)
+{
+    return (fabs(eps) <= EPSILON);
 }
