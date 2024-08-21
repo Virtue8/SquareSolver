@@ -2,9 +2,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
-#include <stdbool.h>
-
-// wrong coef
+                          // enum
 // doxygen
 
 const int NO_ROOTS = 0;                                                  //no roots
@@ -18,6 +16,7 @@ int SolveSquare(double a, double b, double c, double* x1, double* x2);
 int Dispatcher(double a, double b, double c, double *x1, double *x2);
 int Input(double* a, double* b, double* c);
 void Output(int nRoots, double x1, double x2);
+void CorrectInput();
 bool iszero(double eps);
 
 //-----------------------------------------------------------------------
@@ -40,7 +39,7 @@ int main()
 //----------------------------------------------------------------
 
 int Input(double* a, double* b, double* c)
-{
+{                         // assert
     printf("#######################\n"
            "#####     ######     ##\n"
            "####  #########  ######\n"
@@ -56,10 +55,7 @@ int Input(double* a, double* b, double* c)
 
     while(scanf("%lg %lg %lg", a, b, c) != 3)
     {
-        while (getchar() != '\n')
-        {
-        continue;
-        }
+        CorrectInput();
         printf("Wrong format of input, try again, i believe in you.\n");
 
     }
@@ -72,8 +68,8 @@ int Input(double* a, double* b, double* c)
 int Dispatcher(double a, double b, double c, double *x1, double *x2)
 {
     assert(x1 != x2);
-    assert(x2 != 0);
-    assert(x1 != 0);
+    assert(x2 != NULL);
+    assert(x1 != NULL);
     assert(isfinite(a));
     assert(isfinite(b));
     assert(isfinite(c));
@@ -125,8 +121,8 @@ int SolveLinear(double b, double c, double* x1)
 int SolveSquare(double a, double b, double c, double* x1, double* x2)
 {
     assert(x1 != x2);
-    assert(x2 != 0);
-    assert(x1 != 0);
+    assert(x2 != NULL);
+    assert(x1 != NULL);
     assert(isfinite(a));
     assert(isfinite(b));
     assert(isfinite(c));
@@ -159,14 +155,11 @@ int SolveSquare(double a, double b, double c, double* x1, double* x2)
 
 void Output(int nRoots, double x1, double x2)
 {
-    assert(x1 != x2);
-    assert(x2 != 0);
-    assert(x1 != 0);
-    assert(isfinite(nRoots));
     assert(isfinite(x1));
     assert(isfinite(x2));
 
     printf("\nProgram answer: \n\n");
+
     switch (nRoots)
         {
             case NO_ROOTS: printf("There is no real roots :(");
@@ -187,7 +180,16 @@ void Output(int nRoots, double x1, double x2)
         }
 }
 
+//-----------------------------------------------------------------------
+
 bool iszero(double eps)
 {
     return (fabs(eps) <= EPSILON);
+}
+
+//-----------------------------------------------------------------------
+
+void CorrectInput()
+{
+while (getchar() != '\n') {}
 }
