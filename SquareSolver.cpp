@@ -2,13 +2,15 @@
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
-                          // enum
-// doxygen
 
-const int NO_ROOTS = 0;                                                  //no roots
-const int ONE_ROOT = 1;                                                  //one root
-const int TWO_ROOTS = 2;                                                 //two roots
-const int INF_ROOTS = 8;                                                 //inf number of roots (kinda inf symbol but turned on 90 degrees lol)
+enum roots
+{
+    NO_ROOTS,
+    ONE_ROOT,
+    TWO_ROOTS,
+    INF_ROOTS
+};
+
 const double EPSILON = 1e-10;
 
 int SolveLinear(double b, double c, double* x1);
@@ -23,6 +25,7 @@ bool iszero(double eps);
 
 int main()
 {
+
     double a = 0;                                                        //coefficients and roots initialization
     double b = 0;
     double c = 0;
@@ -39,7 +42,11 @@ int main()
 //----------------------------------------------------------------
 
 int Input(double* a, double* b, double* c)
-{                         // assert
+{
+    assert(isfinite(a));
+    assert(isfinite(b));
+    assert(isfinite(c));
+
     printf("#######################\n"
            "#####     ######     ##\n"
            "####  #########  ######\n"
@@ -73,8 +80,6 @@ int Dispatcher(double a, double b, double c, double *x1, double *x2)
     assert(isfinite(a));
     assert(isfinite(b));
     assert(isfinite(c));
-    assert(isfinite(*x1));
-    assert(isfinite(*x2));
 
     if (iszero(a))
     {
@@ -92,10 +97,9 @@ int Dispatcher(double a, double b, double c, double *x1, double *x2)
 
 int SolveLinear(double b, double c, double* x1)
 {
-    assert(x1 != 0);
+    assert(x1 != NULL);
     assert(isfinite(b));
     assert(isfinite(c));
-    assert(isfinite(*x1));
 
     if (iszero(b))
     {
@@ -126,8 +130,6 @@ int SolveSquare(double a, double b, double c, double* x1, double* x2)
     assert(isfinite(a));
     assert(isfinite(b));
     assert(isfinite(c));
-    assert(isfinite(*x1));
-    assert(isfinite(*x2));
 
     double Discriminant = b * b - 4 * a * c;
 
@@ -176,7 +178,6 @@ void Output(int nRoots, double x1, double x2)
 
             default: printf("Error");
                      break;
-
         }
 }
 
@@ -189,7 +190,7 @@ bool iszero(double eps)
 
 //-----------------------------------------------------------------------
 
-void CorrectInput()
+void CleanBuffer()
 {
-while (getchar() != '\n') {}
+    while (getchar() != '\n') {}
 }
