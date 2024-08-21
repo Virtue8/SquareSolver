@@ -26,7 +26,7 @@ bool iszero(double eps);
 int main()
 {
 
-    double a = 0;                                                        //coefficients and roots initialization
+    double a = 0;
     double b = 0;
     double c = 0;
     double x1 = 0;
@@ -39,7 +39,7 @@ int main()
     return 0;
 }
 
-//----------------------------------------------------------------
+//-----------------------------------------------------------------------
 
 int Input(double* a, double* b, double* c)
 {
@@ -70,7 +70,7 @@ int Input(double* a, double* b, double* c)
     return 0;
 }
 
-//----------------------------------------------------------------
+//-----------------------------------------------------------------------
 
 int Dispatcher(double a, double b, double c, double *x1, double *x2)
 {
@@ -93,7 +93,7 @@ int Dispatcher(double a, double b, double c, double *x1, double *x2)
     }
 }
 
-//----------------------------------------------------------------
+//-----------------------------------------------------------------------
 
 int SolveLinear(double b, double c, double* x1)
 {
@@ -120,7 +120,7 @@ int SolveLinear(double b, double c, double* x1)
 
 }
 
-//------------------------------------------------------------------------
+//-----------------------------------------------------------------------
 
 int SolveSquare(double a, double b, double c, double* x1, double* x2)
 {
@@ -194,3 +194,7 @@ void CleanBuffer()
 {
     while (getchar() != '\n') {}
 }
+
+//-----------------------------------------------------------------------
+
+

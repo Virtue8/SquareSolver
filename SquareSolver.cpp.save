@@ -3,14 +3,14 @@
 #include <math.h>
 #include <assert.h>
 
-enum roots 
+enum roots
 {
-    NO_ROOTS, 
+    NO_ROOTS,
     ONE_ROOT,
     TWO_ROOTS,
     INF_ROOTS
 };
-                                                    
+
 const double EPSILON = 1e-10;
 
 int SolveLinear(double b, double c, double* x1);
@@ -20,13 +20,14 @@ int Input(double* a, double* b, double* c);
 void Output(int nRoots, double x1, double x2);
 void CorrectInput();
 bool iszero(double eps);
+int CodeTester(double a, double b, double c, double nRoots, double x1, double x2, );
 
 //-----------------------------------------------------------------------
 
 int main()
 {
-        
-    double a = 0;                                                        //coefficients and roots initialization
+
+    double a = 0;
     double b = 0;
     double c = 0;
     double x1 = 0;
@@ -39,14 +40,14 @@ int main()
     return 0;
 }
 
-//----------------------------------------------------------------
+//-----------------------------------------------------------------------
 
 int Input(double* a, double* b, double* c)
-{                     
+{
     assert(isfinite(a));
     assert(isfinite(b));
     assert(isfinite(c));
-    
+
     printf("#######################\n"
            "#####     ######     ##\n"
            "####  #########  ######\n"
@@ -70,7 +71,7 @@ int Input(double* a, double* b, double* c)
     return 0;
 }
 
-//----------------------------------------------------------------
+//-----------------------------------------------------------------------
 
 int Dispatcher(double a, double b, double c, double *x1, double *x2)
 {
@@ -80,8 +81,6 @@ int Dispatcher(double a, double b, double c, double *x1, double *x2)
     assert(isfinite(a));
     assert(isfinite(b));
     assert(isfinite(c));
-    assert(isfinite(*x1));
-    assert(isfinite(*x2));
 
     if (iszero(a))
     {
@@ -95,14 +94,13 @@ int Dispatcher(double a, double b, double c, double *x1, double *x2)
     }
 }
 
-//----------------------------------------------------------------
+//-----------------------------------------------------------------------
 
 int SolveLinear(double b, double c, double* x1)
 {
     assert(x1 != NULL);
     assert(isfinite(b));
     assert(isfinite(c));
-    assert(isfinite(*x1));
 
     if (iszero(b))
     {
@@ -123,7 +121,7 @@ int SolveLinear(double b, double c, double* x1)
 
 }
 
-//------------------------------------------------------------------------
+//-----------------------------------------------------------------------
 
 int SolveSquare(double a, double b, double c, double* x1, double* x2)
 {
@@ -133,8 +131,6 @@ int SolveSquare(double a, double b, double c, double* x1, double* x2)
     assert(isfinite(a));
     assert(isfinite(b));
     assert(isfinite(c));
-    assert(isfinite(*x1));
-    assert(isfinite(*x2));
 
     double Discriminant = b * b - 4 * a * c;
 
@@ -195,7 +191,11 @@ bool iszero(double eps)
 
 //-----------------------------------------------------------------------
 
-void CleanBuffer()         
+void CleanBuffer()
 {
+
+//-----------------------------------------------------------------------
+
+int UnitTester ()
     while (getchar() != '\n') {}
 }
