@@ -4,8 +4,6 @@
 #include <assert.h>
 #include <stdbool.h>
 
-// isfinite()
-// more asserts
 // wrong coef
 // doxygen
 
@@ -55,7 +53,16 @@ int Input(double* a, double* b, double* c)
     printf("All rights reserved.\n \n");
     printf("Enter coefficients for ax^2+bx+c=0 equation ");
     printf("in the following format: a b c \n \n");
-    scanf("%lg %lg %lg", a, b, c);
+
+    while(scanf("%lg %lg %lg", a, b, c) != 3)
+    {
+        while (getchar() != '\n')
+        {
+        continue;
+        }
+        printf("Wrong format of input, try again, i believe in you.\n");
+
+    }
 
     return 0;
 }
@@ -67,6 +74,11 @@ int Dispatcher(double a, double b, double c, double *x1, double *x2)
     assert(x1 != x2);
     assert(x2 != 0);
     assert(x1 != 0);
+    assert(isfinite(a));
+    assert(isfinite(b));
+    assert(isfinite(c));
+    assert(isfinite(*x1));
+    assert(isfinite(*x2));
 
     if (iszero(a))
     {
@@ -84,6 +96,11 @@ int Dispatcher(double a, double b, double c, double *x1, double *x2)
 
 int SolveLinear(double b, double c, double* x1)
 {
+    assert(x1 != 0);
+    assert(isfinite(b));
+    assert(isfinite(c));
+    assert(isfinite(*x1));
+
     if (iszero(b))
     {
         if (iszero(c))
@@ -107,6 +124,15 @@ int SolveLinear(double b, double c, double* x1)
 
 int SolveSquare(double a, double b, double c, double* x1, double* x2)
 {
+    assert(x1 != x2);
+    assert(x2 != 0);
+    assert(x1 != 0);
+    assert(isfinite(a));
+    assert(isfinite(b));
+    assert(isfinite(c));
+    assert(isfinite(*x1));
+    assert(isfinite(*x2));
+
     double Discriminant = b * b - 4 * a * c;
 
     if (Discriminant < -EPSILON)
@@ -133,6 +159,13 @@ int SolveSquare(double a, double b, double c, double* x1, double* x2)
 
 void Output(int nRoots, double x1, double x2)
 {
+    assert(x1 != x2);
+    assert(x2 != 0);
+    assert(x1 != 0);
+    assert(isfinite(nRoots));
+    assert(isfinite(x1));
+    assert(isfinite(x2));
+
     printf("\nProgram answer: \n\n");
     switch (nRoots)
         {
