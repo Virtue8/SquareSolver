@@ -20,6 +20,7 @@ int SolveSquare(double a, double b, double c, double* x1, double* x2);
 
 int Dispatcher(double a, double b, double c, double *x1, double *x2);
 
+void Intro();
 int Input(double* a, double* b, double* c);
 void Output(int nRoots, double x1, double x2);
 
@@ -36,6 +37,7 @@ void AllUnitsTester();
 int main()
 {
 #ifdef DEBUG
+
     double a = 0;
     double b = 0;
     double c = 0;
@@ -43,17 +45,41 @@ int main()
     double x1 = 0;
     double x2 = 0;
 
+    Intro();
     Input(&a, &b, &c);
+
+    printf("**Manual Mode**\n\n");
+
     int nRoots = Dispatcher(a, b, c, &x1, &x2);
     Output(nRoots, x1, x2);
 
 #else
+
+    Intro();
+    printf("**Automatic mode (Unit Testing)**\n\n");
 
     AllUnitsTester();
 
 #endif
 
     return 0;
+}
+
+//-----------------------------------------------------------------------
+
+void Intro()
+{
+    printf("#######################\n"
+           "#####     ######     ##\n"
+           "####   ########   #####\n"
+           "#####   ########   ####\n"
+           "######   ########   ###\n"
+           "###     ######     ####\n"
+           "#######################\n\n");
+
+    printf("SQUARE EQUATION SOLVER (V1) \n"
+           "Dolgopa City, 2024 \n");
+    printf("All rights reserved.\n\n\n");
 }
 
 //-----------------------------------------------------------------------
@@ -65,16 +91,6 @@ int Input(double* a, double* b, double* c)
     assert(c != NULL);
     assert(a != b && a != c && b != c);
 
-    printf("#######################\n"
-           "#####     ######     ##\n"
-           "####   ########   #####\n"
-           "#####   ########   ####\n"
-           "######   ########   ###\n"
-           "###     ######     ####\n"
-           "#######################\n\n");
-
-    printf("SQUARE EQUATION SOLVER (V1) \nDolgopa City, 2024 \n\n");
-    printf("All rights reserved.\n \n");
     printf("Enter coefficients for ax^2+bx+c=0 equation ");
     printf("in the following format: a b c \n \n");
 
@@ -95,6 +111,7 @@ int Dispatcher(double a, double b, double c, double *x1, double *x2)
     assert(x1 != x2);
     assert(x2 != NULL);
     assert(x1 != NULL);
+
     assert(isfinite(a));
     assert(isfinite(b));
     assert(isfinite(c));
@@ -103,6 +120,14 @@ int Dispatcher(double a, double b, double c, double *x1, double *x2)
     {
         printf("Your equation is linear (b*x + c = 0).\n");
         return SolveLinear(b, c, x1);
+    }
+    else if (IsZero(a) == false && IsZero(b) == false && IsZero(c))
+    {
+        *x2 = 0;
+        printf("Your equation is semi-square (a*x^2 + b*x = 0).\n"
+               "One of the roots is x = %lg.\n"
+               "Now the equation is linear.\n", x2);
+        return SolveLinear(a, b, x1);
     }
     else
     {
@@ -135,7 +160,6 @@ int SolveLinear(double b, double c, double* x1)
         *x1 = -c / b;
         return ONE_ROOT;
     }
-
 }
 
 //-----------------------------------------------------------------------
@@ -145,6 +169,7 @@ int SolveSquare(double a, double b, double c, double* x1, double* x2)
     assert(x1 != x2);
     assert(x2 != NULL);
     assert(x1 != NULL);
+
     assert(isfinite(a));
     assert(isfinite(b));
     assert(isfinite(c));
@@ -157,8 +182,9 @@ int SolveSquare(double a, double b, double c, double* x1, double* x2)
     }
     else
     {
-        *x1 = (-b - sqrt(Discriminant)) / (2 * a);
-        *x2 = (-b + sqrt(Discriminant)) / (2 * a);
+        Discriminant = sqrt(Discriminant);
+        *x1 = (-b - Discriminant) / (2 * a);
+        *x2 = (-b + Discriminant) / (2 * a);
 
         if (IsZero(Discriminant) == 1)
         {
@@ -182,11 +208,11 @@ void Output(int nRoots, double x1, double x2)
 
     switch (nRoots)
         {
-            case NO_ROOTS: printf("There is no real roots :(");
-                           break;
+            case NO_ROOTS:  printf("There is no real roots :(");
+                            break;
 
-            case ONE_ROOT: printf("The only root is %lg.", x1);
-                           break;
+            case ONE_ROOT:  printf("The only root is %lg.", x1);
+                            break;
 
             case TWO_ROOTS: printf("Roots are %lg and %lg.", x1, x2);
                             break;
@@ -217,7 +243,7 @@ bool CompareTwo(double k1, double k2)
 
 void CleanBuffer()
 {
-    while (getchar() != '\n') {}
+    while (getchar() != '\n' || getchar() != EOF) {}
 }
 
 //-----------------------------------------------------------------------
