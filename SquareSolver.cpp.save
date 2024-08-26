@@ -4,15 +4,15 @@
 #include <assert.h>
 
 #define RESET   "\033[0m"
-#define RED     "\033[1;31m"                     //refact color mechanics
+#define RED     "\033[1;31m"
 #define GREEN   "\033[1;32m"
 
 enum modes
-{                                                
-    MANUAL = 'm',                                //    0) Mode Switching
-    TEST = 't'                                   //    1) struct refactoring(entering, initialization, etc.)
-};                                               //    2) file splitting
-                                                 //    3) doxygen
+{
+    MANUAL = 'm',
+    TEST = 't'
+};
+
 enum roots
 {
     NO_ROOTS,
@@ -46,10 +46,6 @@ struct UnitSample
 
 // doxygen
 // preproccessor
-// cmd arg 
-
-// split compilation 
-// files
 
 const double EPSILON = 1e-10;
 
@@ -169,7 +165,7 @@ void ManualMode ()
 
 void TestMode ()
 {
-    printf ("\n**Test mode (Unit Testing)**\n\n");
+    printf ("\n**Test mode (Unit Testing)**\n\n");                 
     const int nTests = 9;
     int counter = 0;
 
@@ -199,7 +195,23 @@ void TestMode ()
 
 int UnitTester(struct UnitSample test)
 {
-    //asserts are temporary deleted
+    assert (isfinite (test.TestNumber) );
+
+    assert (isfinite (test.coeff.a) );
+    assert (isfinite (test.coeff.b) );
+    assert (isfinite (test.coeff.c) );
+
+    assert (isfinite (test.roots_exp.x1) );
+    assert (isfinite (test.roots_exp.x2) );
+    assert (isfinite (test.roots_exp.nRoots) );
+
+    assert (isfinite (test.roots.x1) );
+    assert (isfinite (test.roots.x2) );
+    assert (isfinite (test.roots.nRoots) );
+
+    assert (&test.coeff != NULL);
+    assert (&test.roots != NULL);
+    assert (&test.roots_exp != NULL);
 
     if (test.roots_exp.nRoots != test.roots.nRoots || CompareTwo (test.roots_exp.x1, test.roots.x1) == false || CompareTwo (test.roots.x2, test.roots_exp.x2) == false)
     {

@@ -45,11 +45,6 @@ struct UnitSample
 };
 
 // doxygen
-// preproccessor
-// cmd arg
-
-// split compilation
-// files
 
 const double EPSILON = 1e-10;
 
