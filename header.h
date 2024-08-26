@@ -1,6 +1,11 @@
 #ifndef HEADER_H
 #define HEADER_H
 
+#include <TXLib.h>
+#include <stdio.h>
+#include <math.h>
+#include <assert.h>
+
 #define RESET   "\033[0m"
 #define RED     "\033[1;31m"
 #define GREEN   "\033[1;32m"
