@@ -7,6 +7,11 @@
 #define RED     "\033[1;31m"
 #define GREEN   "\033[1;32m"
 
+#define REDLINE(...) \
+printf("%s", RED);\
+printf(__VA_ARGS__);\
+printf("%s", RESET)
+
 enum modes
 {
     MANUAL = 'm',
@@ -45,7 +50,6 @@ struct UnitSample
 };
 
 // doxygen
-// preproccessor
 
 const double EPSILON = 1e-10;
 
@@ -165,7 +169,7 @@ void ManualMode ()
 
 void TestMode ()
 {
-    printf ("\n**Test mode (Unit Testing)**\n\n");                 
+    printf ("\n**Test mode (Unit Testing)**\n\n");
     const int nTests = 9;
     int counter = 0;
 
@@ -209,25 +213,21 @@ int UnitTester(struct UnitSample test)
     assert (isfinite (test.roots.x2) );
     assert (isfinite (test.roots.nRoots) );
 
-    assert (&test.coeff != NULL);
-    assert (&test.roots != NULL);
-    assert (&test.roots_exp != NULL);
-
     if (test.roots_exp.nRoots != test.roots.nRoots || CompareTwo (test.roots_exp.x1, test.roots.x1) == false || CompareTwo (test.roots.x2, test.roots_exp.x2) == false)
     {
-        printf ("%s----------\n"
-               "|Test #%d |: Incorrect execution:%s a = %lg, b = %lg, c = %lg,\n"
-                "%s----------%s                       x1 = %lg, x2 = %lg, nRoots = %d\n\n"
-                "            Expected:            x1 = %lg, x2 = %lg, nRoots = %d.\n\n",
-                RED, test.TestNumber, RESET, test.coeff.a, test.coeff.b, test.coeff.c, RED, RESET, test.roots.x1, test.roots.x2,
+        REDLINE("----------\n"
+                "|Test #%d |: Incorrect execution: a = %lg, b = %lg, c = %lg,\n"
+                "----------                        x1 = %lg, x2 = %lg, nRoots = %d\n\n"
+                "             Expected:            x1 = %lg, x2 = %lg, nRoots = %d.\n\n",
+                test.TestNumber, test.coeff.a, test.coeff.b, test.coeff.c, test.roots.x1, test.roots.x2,
                 test.roots.nRoots, test.roots_exp.x1, test.roots_exp.x2, test.roots_exp.nRoots);
         return 0;
     }
     else
     {
-        printf ("%s--------- \n"
-                "|Test #%d | : Correct execution!\n"
-                "--------- %s\n\n", GREEN, test.TestNumber, RESET);
+        GREENLINE("--------- \n"
+                  "|Test #%d | : Correct execution!\n"
+                  "--------- \n\n", test.TestNumber);
         return 1;
     }
     return 0;

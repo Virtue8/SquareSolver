@@ -1530,3 +1530,283 @@ Run file:	C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe
 Directory:	C:\Users\Vadim\Documents\GitHub\SquareSolver
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7694E6DE. Попытка прочесть данные по адресу 0x00000080 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x265C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\vadim\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2024 13:01:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 26 2024 13:01:55
+
+Run file:	C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\Vadim\Documents\GitHub\SquareSolver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7694E6DE. Попытка прочесть данные по адресу 0x00000080 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x265C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\vadim\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2024 13:01:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 26 2024 13:01:55
+
+Run file:	C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\Vadim\Documents\GitHub\SquareSolver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7694E6DE. Попытка прочесть данные по адресу 0x00000080 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x376C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\vadim\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2024 13:01:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 26 2024 13:13:08
+
+Run file:	C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\Vadim\Documents\GitHub\SquareSolver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7694E6DE. Попытка прочесть данные по адресу 0x00000080 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x376C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\vadim\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2024 13:01:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 26 2024 13:13:08
+
+Run file:	C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\Vadim\Documents\GitHub\SquareSolver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7694E6DE. Попытка прочесть данные по адресу 0x00000008 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x2B54 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\vadim\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2024 13:24:55, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 26 2024 13:25:04
+
+Run file:	C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\Vadim\Documents\GitHub\SquareSolver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7694E6DE. Попытка прочесть данные по адресу 0x00000008 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x2B54 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\vadim\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2024 13:24:55, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 26 2024 13:25:04
+
+Run file:	C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\Vadim\Documents\GitHub\SquareSolver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7694E6DE. Попытка прочесть данные по адресу 0x00000008 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x6464 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\vadim\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2024 13:26:54, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 26 2024 13:27:03
+
+Run file:	C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\Vadim\Documents\GitHub\SquareSolver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7694E6DE. Попытка прочесть данные по адресу 0x00000008 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x6464 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\vadim\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2024 13:26:54, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 26 2024 13:27:03
+
+Run file:	C:\Users\Vadim\Documents\GitHub\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\Vadim\Documents\GitHub\SquareSolver
+
+--------------------------------------------------
