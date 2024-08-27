@@ -44,11 +44,9 @@ int Dispatcher (struct Coefficients coeff, struct Roots *roots)
 int SolveSemiLinear(struct Coefficients coeff, struct Roots *roots)
 {
     assert (roots != NULL);
-    assert (isfinite (roots->x1) );
-    assert (isfinite (roots->x2) );
     assert (isfinite (coeff.b) );
-    assert (isfinite (coeff.a) );
-
+    assert (isfinite (coeff.c) );
+    
     roots->x1 = -coeff.b / coeff.a;
     return TWO_ROOTS;
 }
@@ -58,8 +56,6 @@ int SolveSemiLinear(struct Coefficients coeff, struct Roots *roots)
 int SolveLinear (struct Coefficients coeff, struct Roots *roots)
 {
     assert (roots != NULL);
-    assert (isfinite (roots->x1) );
-    assert (isfinite (roots->x2) );
     assert (isfinite (coeff.b) );
     assert (isfinite (coeff.c) );
 
