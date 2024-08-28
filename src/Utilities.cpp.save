@@ -17,11 +17,11 @@ bool Skipper ()
     int skipper_char = 0;
 
     while ( (skipper_char = getchar ()) == ' ' || skipper_char == '\t') {}
-
-    if (skipper_char == '\n' || skipper_char == EOF)
+    
+    if (skipper_char = getchar ()) != '\n' && skipper_char != EOF)
         return true;
-    else
-        return false;
+        
+    return false;
 }
 
 //-----------------------------------------------------------------------

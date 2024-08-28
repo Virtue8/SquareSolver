@@ -8,7 +8,7 @@ void Menu ()
     printf ("###############################\n"
             "####     ######################\n"
             "###  ######    ################\n"
-            "###   ####  *  ############ ###\n"
+            "###   ####  #  ############ ###\n"
             "#####   ###    ######   ##   ##\n"
             "######  ###### ###### ##### ###\n"
             "##     ####### ### ## ##### ###\n"
@@ -38,7 +38,7 @@ void ModeSwitcher ()
                       break;
 
         default     : printf ("\nWrong format of input, try again, i believe in you.\n");
-                      ModeSwitcher();
+                      ModeSwitcher ();
     }
 }
 

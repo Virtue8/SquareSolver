@@ -14,15 +14,14 @@ void Input (struct Coefficients *coeff)
     printf ("Enter coefficients for ax^2+bx+c=0 equation ");
     printf ("in the following format: a b c \n\n");
 
-    while (scanf ("%lg %lg %lg", &coeff->a, &coeff->b, &coeff->c) != 3)
+    while (true)
     {
-        CleanBuffer ();
+        if (scanf ("%lg %lg %lg", &coeff->a, &coeff->b, &coeff->c) == 3)
+        {
+            if (Skipper () == true) {break;}
+        }
         printf ("Wrong format of input, try again, i believe in you.\n");
-    }
-
-    if (!Skipper () )
-    {
-        printf ("Actually that's not exactly what i expected, but anyway...\n");
+        CleanBuffer ();
     }
 }
 
