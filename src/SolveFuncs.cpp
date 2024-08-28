@@ -40,6 +40,8 @@ void Dispatcher (struct Coefficients coeff, struct Roots *roots)
     }
 }
 
+//-----------------------------------------------------------------------
+
 void SolveSemiLinear(struct Coefficients coeff, struct Roots *roots)
 {
     assert (roots != NULL);

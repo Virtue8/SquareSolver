@@ -1,9 +1,0 @@
-//g++ src/InputOutput.cpp src/Menu.cpp src/SolveFuncs.cpp src/Test.cpp src/Utilities.cpp -o square.exe
-
-#include "../headers/Menu.h"
-
-int main ()
-{
-    Menu ();
-    return 0;
-}

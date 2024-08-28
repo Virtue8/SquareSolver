@@ -8,7 +8,7 @@ void TestMode ()
     printf ("\n**Test mode (Unit Testing)**\n\n");
     int correct_tests = 0;
 
-    UnitSample test[] = {//      a     b     c     x1_exp   x2_exp   nRoots_exp    x1    x2    nRoots       TestNumber
+    UnitSample tests[] = {//     a     b     c     x1_exp   x2_exp   nRoots_exp    x1    x2    nRoots       TestNumber
                               { {1,    2,   -3},   {-3,     1,       TWO_ROOTS},   {0,   0,    NO_ROOTS},     1},
                               { {1,    -5,  4},    { 1,     4,       TWO_ROOTS},   {0,   0,    NO_ROOTS},     2},
                               { {1,    -2,  1},    { 1,     1,       ONE_ROOT},    {0,   0,    NO_ROOTS},     3},
@@ -19,12 +19,11 @@ void TestMode ()
                               { {0,    0,   0},    { 0,     0,       NO_ROOTS},    {0,   0,    NO_ROOTS},     8},    //invalid test
                               { {0,    0,   0},    { 0,     0,       INF_ROOTS},   {0,   0,    NO_ROOTS},     9}};
 
-    const int nTests = sizeof (test) / sizeof (test[0]);
+    const int nTests = sizeof (tests) / sizeof (tests[0]);
 
     for (int i = 0; i < nTests; i++)
     {
-        Dispatcher (test[i].coeff, &test[i].roots);
-        correct_tests += UnitTester (test[i]);
+        correct_tests += UnitTester (tests[i]);
     }
 
     printf ("\n--------------------------------\n"
@@ -46,8 +45,10 @@ int UnitTester(struct UnitSample test)
     assert (isfinite (test.roots_exp.x2) );
     assert (isfinite (test.roots_exp.nRoots) );
 
-    if (test.roots_exp.nRoots != test.roots.nRoots ||\
-        CompareTwo (test.roots_exp.x1, test.roots.x1) == false ||\
+    Dispatcher (test.coeff, &test.roots);
+
+    if (test.roots_exp.nRoots != test.roots.nRoots ||
+        CompareTwo (test.roots_exp.x1, test.roots.x1) == false ||
         CompareTwo (test.roots.x2, test.roots_exp.x2) == false)
     {
         COLORED_LINE (RED, "----------\n"
