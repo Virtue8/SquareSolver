@@ -31,14 +31,14 @@ struct Roots
     int nRoots;
 };
 
-int Dispatcher(struct Coefficients coeff, struct Roots *roots);
+void Dispatcher (struct Coefficients coeff, struct Roots *roots);
 
 void ManualMode ();
 
-int SolveLinear (struct Coefficients coeff, struct Roots *roots);
+void SolveLinear (struct Coefficients coeff, struct Roots *roots);
 
-int SolveSemiLinear (struct Coefficients coeff, struct Roots *roots);
+void SolveSemiLinear (struct Coefficients coeff, struct Roots *roots);
 
-int SolveSquare (struct Coefficients coeff, struct Roots *roots);
+void SolveSquare (struct Coefficients coeff, struct Roots *roots);
 
 #endif

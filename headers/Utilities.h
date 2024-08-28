@@ -9,7 +9,7 @@
 const double EPSILON = 1e-10;
 
 void CleanBuffer ();
-bool IsZero (double eps);
-bool CompareTwo (double k1, double k2);
+bool IsZero (const double eps);
+bool CompareTwo (const double k1, const double k2);
 
 #endif

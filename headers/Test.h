@@ -13,15 +13,10 @@
 #define RED     "\033[1;31m"
 #define GREEN   "\033[1;32m"
 
-#define REDLINE(...) \
-printf("%s", RED);\
-printf(__VA_ARGS__);\
-printf("%s", RESET)
-
-#define GREENLINE(...) \
-printf("%s", GREEN);\
-printf(__VA_ARGS__);\
-printf("%s", RESET)
+#define COLORED_LINE(COLOR, ...) \
+printf ("%s", COLOR);\
+printf (__VA_ARGS__);\
+printf ("%s", RESET)
 
 struct UnitSample
 {

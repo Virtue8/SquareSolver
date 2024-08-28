@@ -11,14 +11,14 @@ void ManualMode ()
     printf ("\n**Manual Mode**\n\n");
 
     Input (&coeff);
-    roots.nRoots = Dispatcher (coeff, &roots);
+    Dispatcher (coeff, &roots);
     Output (roots);
 }
 
 
 //-----------------------------------------------------------------------
 
-int Dispatcher (struct Coefficients coeff, struct Roots *roots)
+void Dispatcher (struct Coefficients coeff, struct Roots *roots)
 {
     assert (roots != NULL);
 
@@ -28,20 +28,19 @@ int Dispatcher (struct Coefficients coeff, struct Roots *roots)
 
     if (IsZero (coeff.a) )
     {
-        return SolveLinear (coeff, roots);
+        SolveLinear (coeff, roots);
     }
     else if (IsZero (coeff.c) )
     {
-        return SolveSemiLinear (coeff, roots);
+        SolveSemiLinear (coeff, roots);
     }
     else
     {
-        return SolveSquare (coeff, roots);
+        SolveSquare (coeff, roots);
     }
-    return 0;
 }
 
-int SolveSemiLinear(struct Coefficients coeff, struct Roots *roots)
+void SolveSemiLinear(struct Coefficients coeff, struct Roots *roots)
 {
     assert (roots != NULL);
     assert (isfinite (roots->x1) );
@@ -50,12 +49,12 @@ int SolveSemiLinear(struct Coefficients coeff, struct Roots *roots)
     assert (isfinite (coeff.a) );
 
     roots->x1 = -coeff.b / coeff.a;
-    return TWO_ROOTS;
+    roots->nRoots = TWO_ROOTS;
 }
 
 //-----------------------------------------------------------------------
 
-int SolveLinear (struct Coefficients coeff, struct Roots *roots)
+void SolveLinear (struct Coefficients coeff, struct Roots *roots)
 {
     assert (roots != NULL);
     assert (isfinite (roots->x1) );
@@ -67,11 +66,11 @@ int SolveLinear (struct Coefficients coeff, struct Roots *roots)
     {
         if (IsZero (coeff.c) )
         {
-            return INF_ROOTS;
+            roots->nRoots = INF_ROOTS;
         }
         else
         {
-            return NO_ROOTS;
+            roots->nRoots = NO_ROOTS;
         }
     }
     else
@@ -79,19 +78,19 @@ int SolveLinear (struct Coefficients coeff, struct Roots *roots)
         if (IsZero (coeff.c) )
         {
             roots->x1 = 0;
-            return ONE_ROOT;
+            roots->nRoots = ONE_ROOT;
         }
         else
         {
             roots->x1 = -coeff.c / coeff.b;
-            return ONE_ROOT;
+            roots->nRoots = ONE_ROOT;
         }
     }
 }
 
 //-----------------------------------------------------------------------
 
-int SolveSquare (struct Coefficients coeff, struct Roots *roots)
+void SolveSquare (struct Coefficients coeff, struct Roots *roots)
 {
     assert (roots != NULL);
     assert (isfinite (roots->x1) );
@@ -104,7 +103,7 @@ int SolveSquare (struct Coefficients coeff, struct Roots *roots)
 
     if (Discriminant < -EPSILON)
     {
-        return NO_ROOTS;
+        roots->nRoots = NO_ROOTS;
     }
     else
     {
@@ -115,11 +114,11 @@ int SolveSquare (struct Coefficients coeff, struct Roots *roots)
 
         if (IsZero (Discriminant) == true)
         {
-            return ONE_ROOT;
+            roots->nRoots = ONE_ROOT;
         }
         else
         {
-            return TWO_ROOTS;
+            roots->nRoots = TWO_ROOTS;
         }
     }
 }

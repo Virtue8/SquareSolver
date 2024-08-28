@@ -18,10 +18,6 @@ void Menu ()
             "Dolgopa City, 2024 \n");
     printf ("All rights reserved.\n\n\n");
 
-    printf ("Choose mode: \n"
-            "m for Manual Mode\n"
-            "t for Test Mode\n");
-
     ModeSwitcher ();
 }
 
@@ -29,6 +25,10 @@ void Menu ()
 
 void ModeSwitcher ()
 {
+    printf ("\nChoose mode: \n"
+            "m for Manual Mode\n"
+            "t for Test Mode\n\n");
+
     switch (GetMode () )
     {
         case MANUAL : ManualMode ();
@@ -37,8 +37,8 @@ void ModeSwitcher ()
         case TEST   : TestMode ();
                       break;
 
-        default     : printf("Wrong format of input, try again, i believe in you.\n");
-                      ModeSwitcher ();
+        default     : printf ("\nWrong format of input, try again, i believe in you.\n");
+                      ModeSwitcher();
     }
 }
 

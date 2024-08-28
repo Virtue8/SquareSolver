@@ -1,8 +1,6 @@
 #ifndef INPUT_OUTPUT_CPP
 #define INPUT_OUTPUT_CPP
 
-#define 
-
 #include "../headers/InputOutput.h"
 
 void Input (struct Coefficients *coeff)
@@ -16,15 +14,13 @@ void Input (struct Coefficients *coeff)
     printf ("Enter coefficients for ax^2+bx+c=0 equation ");
     printf ("in the following format: a b c \n \n");
 
-
     while (true)
     {
         if (scanf ("%lg %lg %lg", &coeff->a, &coeff->b, &coeff->c) == 3)
         {
             if (getchar() != '\n')
             {
-                printf ("Wrong format of input, try again, i believe in you.\n");
-                CleanBuffer ();
+                ;
             }
             else
             {
@@ -33,9 +29,11 @@ void Input (struct Coefficients *coeff)
         }
         else
         {
-            printf ("Wrong format of input, try again, i believe in you.\n");
-            CleanBuffer ();   // same things
+            ;
         }
+
+        printf ("Wrong format of input, try again, i believe in you.\n");
+        CleanBuffer ();
     }
 }
 
